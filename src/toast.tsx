@@ -112,6 +112,7 @@ export interface ToastOptions {
   data?: any;
 
   swipeEnabled?: boolean;
+  maxToasts?:number
 }
 
 export interface ToastProps extends ToastOptions {

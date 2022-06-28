@@ -17,6 +17,7 @@ export interface Props extends ToastOptions {
   offsetTop?: number;
   offsetBottom?: number;
   swipeEnabled?: boolean;
+  maxToasts?:number
 }
 
 interface State {
@@ -111,24 +112,25 @@ class ToastContainer extends Component<Props, State> {
 
   renderBottomToasts() {
     const { toasts } = this.state;
-    let { offset, offsetBottom } = this.props;
+    let { offset, offsetBottom,maxToasts } = this.props;
     let style: ViewStyle = {
       bottom: offsetBottom || offset,
       width: width,
       justifyContent: "flex-end",
       flexDirection: "column",
     };
+    const  maxToastsToRender=maxToasts || toasts?.length
     return (
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "position" : undefined}
         style={[styles.container, style]}
         pointerEvents="box-none"
       >
-        {toasts
+        {toasts?.length ? toasts?.slice(0,maxToastsToRender)
           .filter((t) => !t.placement || t.placement === "bottom")
           .map((toast) => (
             <Toast key={toast.id} {...toast} />
-          ))}
+          )):null}
       </KeyboardAvoidingView>
     );
   }
