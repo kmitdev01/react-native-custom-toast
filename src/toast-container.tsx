@@ -126,11 +126,7 @@ class ToastContainer extends Component<Props, State> {
         style={[styles.container, style]}
         pointerEvents="box-none"
       >
-        {toasts?.length ? toasts?.slice(0,maxToastsToRender)
-          .filter((t) => !t.placement || t.placement === "bottom")
-          .map((toast) => (
-            <Toast key={toast.id} {...toast} />
-          )):null}
+        {toasts?.length ? <Toast key={toasts?.[0]?.id} {...toasts[0]} /> : null}
       </KeyboardAvoidingView>
     );
   }
