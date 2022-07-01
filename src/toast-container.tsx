@@ -112,7 +112,7 @@ class ToastContainer extends Component<Props, State> {
 
   renderBottomToasts() {
     const { toasts } = this.state;
-    let { offset, offsetBottom,maxToasts } = this.props;
+    let { offset, offsetBottom } = this.props;
     let style: ViewStyle = {
       bottom: offsetBottom || offset,
       width: width,
