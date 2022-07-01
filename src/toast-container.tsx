@@ -119,7 +119,7 @@ class ToastContainer extends Component<Props, State> {
       justifyContent: "flex-end",
       flexDirection: "column",
     };
-    const  maxToastsToRender=maxToasts || toasts?.length
+    // const  maxToastsToRender=maxToasts || toasts?.length
     return (
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "position" : undefined}
