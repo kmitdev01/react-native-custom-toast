@@ -61,7 +61,7 @@ class ToastContainer extends Component<Props, State> {
             ...toastOptions,
           },
           ...this.state.toasts.filter((t) => t.open),
-        ],
+        ].slice(0,1),
       });
     });
 
